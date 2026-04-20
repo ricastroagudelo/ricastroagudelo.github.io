@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ricardo Castro Agudelo</title>
+<meta name="description" content="Ricardo Castro Agudelo is a PhD candidate in Spanish and Portuguese at the University of Texas at Austin, researching collective memory, empathy, and post-conflict cultural production in Colombia and Peru.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5f1e8;
+    --cream-dark: #ebe5d6;
+    --ink: #1c1917;
+    --ink-soft: #3a342f;
+    --rust: #8a3a2a;
+    --rust-dark: #6a2c20;
+    --gold: #a67b26;
+    --muted: #6b645c;
+    --rule: #d4cdb9;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+  body {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--ink);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a { color: var(--rust); text-decoration: none; transition: color 0.2s; }
+  a:hover { color: var(--rust-dark); text-decoration: underline; text-underline-offset: 3px; }
+
+  /* NAV */
+  nav.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(245, 241, 232, 0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 18px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .brand {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+  }
+  .brand:hover { color: var(--ink); text-decoration: none; }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+  .nav-links a {
+    color: var(--ink-soft);
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 500;
+  }
+  .nav-links a:hover { color: var(--rust); text-decoration: none; }
+
+  /* HERO */
+  .hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 32px 80px;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .hero-text .kicker {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+
+  .hero-text h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(44px, 6vw, 76px);
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    margin-bottom: 28px;
+    color: var(--ink);
+  }
+
+  .hero-text h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--rust);
+  }
+
+  .hero-text .lede {
+    font-size: 20px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 540px;
+    margin-bottom: 32px;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 500;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    background: transparent;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .btn:hover {
+    background: var(--ink);
+    color: var(--cream);
+    text-decoration: none;
+  }
+  .btn.primary {
+    background: var(--ink);
+    color: var(--cream);
+  }
+  .btn.primary:hover {
+    background: var(--rust);
+    border-color: var(--rust);
+  }
+
+  .hero-portrait {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    background: linear-gradient(135deg, var(--cream-dark) 0%, #d8ceb8 100%);
+    border: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-portrait::before {
+    content: '';
+    position: absolute;
+    inset: 14px;
+    border: 1px solid rgba(138, 58, 42, 0.3);
+    pointer-events: none;
+  }
+
+  .hero-portrait .placeholder-text {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--muted);
+    text-align: center;
+    padding: 24px;
+  }
+
+  /* SECTIONS */
+  section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 32px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .section-header {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 60px;
+    margin-bottom: 48px;
+    align-items: baseline;
+  }
+
+  .section-label {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-top: 8px;
+  }
+
+  .section-label::before {
+    content: '§';
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--rust);
+    margin-right: 10px;
+    vertical-align: baseline;
+  }
+
+  .section-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  .section-title em { font-style: italic; color: var(--rust); }
+
+  .section-body {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 60px;
+  }
+
+  .section-body > .content {
+    max-width: 720px;
+  }
+
+  .section-body p {
+    margin-bottom: 18px;
+    color: var(--ink-soft);
+  }
+
+  .section-body p:last-child { margin-bottom: 0; }
+
+  /* ABOUT */
+  .about .content p:first-child::first-letter {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 64px;
+    line-height: 0.9;
+    float: left;
+    margin: 6px 10px 0 0;
+    color: var(--rust);
+    font-weight: 500;
+  }
+
+  /* RESEARCH */
+  .dissertation-card {
+    background: var(--cream-dark);
+    padding: 36px 40px;
+    border-left: 3px solid var(--rust);
+    margin-bottom: 32px;
+  }
+
+  .dissertation-card .label {
+    font-family: 'Lora', Georgia, serif;
+    font-style: italic;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  .dissertation-card h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.3;
+    margin-bottom: 8px;
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  .dissertation-card .subtitle {
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+
+  .dissertation-card .committee {
+    font-size: 14px;
+    color: var(--ink-soft);
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    margin-top: 20px;
+  }
+
+  .committee strong { font-weight: 500; color: var(--ink); }
+
+  .project-list {
+    list-style: none;
+    margin-top: 24px;
+  }
+
+  .project-list li {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 24px;
+    align-items: baseline;
+  }
+
+  .project-list li:last-child { border-bottom: none; }
+
+  .project-list .year {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--rust);
+  }
+
+  .project-list .desc h4 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 19px;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+
+  .project-list .desc p {
+    font-size: 15px;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* PUBLICATIONS */
+  .pub-category {
+    margin-bottom: 40px;
+  }
+
+  .pub-category h3 {
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .pub-list {
+    list-style: none;
+  }
+
+  .pub-list li {
+    padding: 14px 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+
+  .pub-list li .pub-title {
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  .pub-list li .pub-meta {
+    color: var(--muted);
+    font-size: 14px;
+    display: block;
+    margin-top: 2px;
+  }
+
+  /* TEACHING */
+  .course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 28px;
+  }
+
+  .course-card {
+    padding: 24px 26px;
+    background: var(--cream-dark);
+    border: 1px solid var(--rule);
+  }
+
+  .course-card h4 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+
+  .course-card p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  /* CURATORIAL */
+  .archive-list {
+    list-style: none;
+    margin-top: 24px;
+    columns: 2;
+    column-gap: 40px;
+  }
+
+  .archive-list li {
+    break-inside: avoid;
+    padding: 10px 0;
+    font-size: 15px;
+    color: var(--ink-soft);
+    font-style: italic;
+    position: relative;
+    padding-left: 20px;
+  }
+
+  .archive-list li::before {
+    content: '◦';
+    color: var(--rust);
+    position: absolute;
+    left: 0;
+    font-style: normal;
+  }
+
+  /* CONTACT */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 16px;
+  }
+
+  .contact-block .label {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .contact-block .value {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 18px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  .contact-block a { color: var(--ink); border-bottom: 1px solid var(--rust); }
+  .contact-block a:hover { color: var(--rust); text-decoration: none; }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 40px 32px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  footer .ornament {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 20px;
+    color: var(--rust);
+    margin-bottom: 12px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 860px) {
+    .hero {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding: 60px 24px;
+    }
+    .hero-portrait {
+      max-width: 320px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .section-header,
+    .section-body {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .section-label {
+      padding-top: 0;
+    }
+    section {
+      padding: 60px 24px;
+    }
+    .nav-inner {
+      padding: 14px 20px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .nav-links {
+      gap: 20px;
+    }
+    .archive-list {
+      columns: 1;
+    }
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    .project-list li {
+      grid-template-columns: 1fr;
+      gap: 6px;
+    }
+    .dissertation-card {
+      padding: 24px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .nav-links {
+      font-size: 12px;
+      gap: 14px;
+    }
+    .nav-links a { font-size: 12px; }
+    body { font-size: 16px; }
+  }
+
+  /* Subtle entrance animation */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-text > * { animation: fadeUp 0.8s ease-out backwards; }
+  .hero-text .kicker { animation-delay: 0.05s; }
+  .hero-text h1 { animation-delay: 0.15s; }
+  .hero-text .lede { animation-delay: 0.3s; }
+  .hero-text .hero-cta { animation-delay: 0.45s; }
+  .hero-portrait { animation: fadeUp 0.8s ease-out 0.2s backwards; }
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="nav-inner">
+    <a href="#top" class="brand">Ricardo Castro Agudelo</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#curatorial">Curatorial</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div id="top"></div>
+
+<header class="hero">
+  <div class="hero-text">
+    <div class="kicker">University of Texas at Austin</div>
+    <h1>Memory, empathy, and the <em>stories</em> we tell after war.</h1>
+    <p class="lede">I recently defended my PhD in the Department of Spanish and Portuguese, with a dissertation on how literature, film, and photography shape collective memory in post-conflict Colombia and Peru.</p>
+    <div class="hero-cta">
+      <a href="#research" class="btn primary">Read the Research</a>
+      <a href="cv.pdf" class="btn">Download CV</a>
+    </div>
+  </div>
+  <div class="hero-portrait">
+    <span class="placeholder-text">Replace this block with<br>a portrait image</span>
+  </div>
+</header>
+
+<section id="about" class="about">
+  <div class="section-header">
+    <div class="section-label">About</div>
+    <h2 class="section-title">A scholar with a <em>journalist's</em> ear and a <em>curator's</em> eye.</h2>
+  </div>
+  <div class="section-body">
+    <div></div>
+    <div class="content">
+      <p>I grew up in Colombia and came to the study of memory through a long detour. Before arriving at UT Austin, I spent six years running the Language and Writing program at Universidad Externado de Colombia, programmed cultural events at the Centro Cultural Gabriel García Márquez in Bogotá, edited at Fondo de Cultura Económica, and wrote for <em>Revista Arcadia</em> and <em>El País</em>, where I interviewed writers like Fernando Vallejo, Junot Díaz, and Franco Moretti.</p>
+      <p>That earlier life shapes how I read now. I approach post-conflict texts as someone who has sat across a table from storytellers and learned to listen for what they can't quite say. My research asks how readers and viewers come to feel their way into the experiences of others, and what the limits of that feeling might be.</p>
+      <p>At UT Austin I also work at the Harry Ransom Center, where I've engaged with the papers of Gabriel García Márquez, Arthur Miller, Oscar Cásares, and Alfred A. Knopf, Inc., among others. I publish in English and Spanish and read Portuguese.</p>
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="section-header">
+    <div class="section-label">Research</div>
+    <h2 class="section-title">Expanding the <em>gray zone</em>.</h2>
+  </div>
+  <div class="section-body">
+    <div></div>
+    <div class="content">
+      <div class="dissertation-card">
+        <div class="label">Dissertation</div>
+        <h3>Expanding the Gray Zone: Empathy, Emotional Engagement and Collective Memory after War</h3>
+        <div class="subtitle">Defended April 17, 2026 · PhD conferred May 8, 2026</div>
+        <p>My dissertation brings cognitive cultural studies into conversation with Latin American memory studies, reading post-conflict fiction, film, testimony, and photography from Colombia and Peru. I draw on Antonio Damasio's work on somatic markers and the architecture of the self, alongside scholarship on embodied simulation and prosthetic memory, to ask how cultural objects build the emotional conditions for moral judgment in the wake of atrocity. Case studies include the films <em>Días de Santiago</em> and <em>La Sirga</em>, the photographic archives of Jesús Abad Colorado and Federico Ríos, and Peru's <em>Yuyanapaq</em> exhibition.</p>
+        <div class="committee">
+          <strong>Co-chairs:</strong> Gabriela Polit Dueñas and Hannah Wojciehowski<br>
+          <strong>Committee:</strong> Donna DeCesare, Jason Borge, Cory Reed
+        </div>
+      </div>
+
+      <ul class="project-list">
+        <li>
+          <div class="year">Under review</div>
+          <div class="desc">
+            <h4>Collective Storytelling and Ecological Reconciliation</h4>
+            <p>An article on former FARC combatants narrating nature in post-conflict Colombia, read through affective ecocriticism. Currently under review at <em>Environmental Humanities</em>.</p>
+          </div>
+        </li>
+        <li>
+          <div class="year">2026</div>
+          <div class="desc">
+            <h4>Society for Cognitive Studies of the Moving Image</h4>
+            <p>Conference presentation, Amsterdam, June 2026.</p>
+          </div>
+        </li>
+        <li>
+          <div class="year">In progress</div>
+          <div class="desc">
+            <h4>U.S. Latino Memoir and the Susan Bergholz Papers</h4>
+            <p>A second research agenda taking shape around memoirs by Javier Zamora, Ingrid Rojas Contreras, and Julia Álvarez, and the literary agent whose papers I've been processing at the Ransom Center.</p>
+          </div>
+        </li>
+        <li>
+          <div class="year">Forthcoming</div>
+          <div class="desc">
+            <h4>Routledge Literary BRAIN Focus Series</h4>
+            <p>In early conversations about developing the dissertation into a book for the series edited by Jean-François Vernay.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="section-header">
+    <div class="section-label">Publications</div>
+    <h2 class="section-title">Selected <em>writing</em>.</h2>
+  </div>
+  <div class="section-body">
+    <div></div>
+    <div class="content">
+
+      <div class="pub-category">
+        <h3>Peer-reviewed</h3>
+        <ul class="pub-list">
+          <li>
+            "Collective Storytelling and Ecological Reconciliation: Former Combatants Narrate Nature in Post-Conflict Colombia."
+            <span class="pub-meta">Under review, <em>Environmental Humanities</em>.</span>
+          </li>
+          <li>
+            Book chapter in <span class="pub-title">Contar Historias</span>.
+            <span class="pub-meta">UT Press / Tower Books, 2023.</span>
+          </li>
+          <li>
+            Article in <span class="pub-title">PORTAL</span>.
+            <span class="pub-meta">LLILAS Benson, 2019.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="pub-category">
+        <h3>Cultural and editorial writing</h3>
+        <ul class="pub-list">
+          <li>
+            Interview with Susan Bergholz.
+            <span class="pub-meta"><em>Ransom Center Magazine</em>, Fall 2025.</span>
+          </li>
+          <li>
+            Essays, interviews, and reviews in <em>Revista Arcadia</em> and <em>El País</em>, including conversations with Fernando Vallejo, Junot Díaz, and Franco Moretti.
+          </li>
+          <li>
+            Editorial work at <em>Pterodáctilo</em> (UT Austin) and Fondo de Cultura Económica.
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="teaching">
+  <div class="section-header">
+    <div class="section-label">Teaching</div>
+    <h2 class="section-title">Helping students <em>read closely</em> and <em>write honestly</em>.</h2>
+  </div>
+  <div class="section-body">
+    <div></div>
+    <div class="content">
+      <p>I've been teaching language and writing for more than a decade, first in Bogotá and now in Austin. My classroom is built around close reading, careful revision, and the conviction that students learn to write by writing about things that matter to them. In literature courses, I ask students to treat texts as sites of genuine inquiry, not targets for decoding.</p>
+      <p>My teaching draws on my scholarly work: I want students to notice how stories, images, and testimony shape what they feel before they analyze what they think. Recent and proposed courses include:</p>
+
+      <div class="course-grid">
+        <div class="course-card">
+          <h4>Intermediate Spanish: Contemporary Latin American Culture</h4>
+          <p>Language acquisition through literary texts, films, and journalism from across the region.</p>
+        </div>
+        <div class="course-card">
+          <h4>Memory and Violence in Latin American Literature</h4>
+          <p>A course on testimonio, post-conflict fiction, and the cultural afterlives of political violence.</p>
+        </div>
+        <div class="course-card">
+          <h4>The Latin American Short Story</h4>
+          <p>From Borges and Rulfo to Schweblin and Enríquez, a workshop-style introduction to the form.</p>
+        </div>
+        <div class="course-card">
+          <h4>Writing Latin America: Journalism and Literature</h4>
+          <p>A craft-based course where reportage and fiction meet, informed by my years as a working journalist.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="curatorial">
+  <div class="section-header">
+    <div class="section-label">Curatorial &amp; Archival</div>
+    <h2 class="section-title">Working <em>in the archives</em>.</h2>
+  </div>
+  <div class="section-body">
+    <div></div>
+    <div class="content">
+      <p>I'm a Curatorial Assistant and Graduate Research Assistant at the Harry Ransom Center at UT Austin, where I've moved through several roles since joining as a Career Pathway Fellow. Archival work has become a central part of my scholarly practice: the texture of a manuscript, a marked-up typescript, or a stack of correspondence tells a story that the published record never fully captures.</p>
+      <p>Collections I've worked with include:</p>
+      <ul class="archive-list">
+        <li>Gabriel García Márquez Papers</li>
+        <li>Arthur Miller Papers</li>
+        <li>Oscar Cásares Papers</li>
+        <li>Alfred A. Knopf, Inc. Records</li>
+        <li>Susan Bergholz Literary Papers</li>
+      </ul>
+      <p style="margin-top: 28px;">Before UT Austin, I programmed cultural events and exhibitions at the Centro Cultural Gabriel García Márquez in Bogotá, a formative experience that still shapes how I think about bringing literature and visual culture to public audiences.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-header">
+    <div class="section-label">Contact</div>
+    <h2 class="section-title">Get in <em>touch</em>.</h2>
+  </div>
+  <div class="section-body">
+    <div></div>
+    <div class="content">
+      <p>I'm on the academic job market for 2025 to 2026 and happy to hear from search committees, editors, and fellow researchers working on memory, Latin American cultural studies, or cognitive approaches to literature and film.</p>
+
+      <div class="contact-grid">
+        <div class="contact-block">
+          <div class="label">Email</div>
+          <div class="value">
+            <a href="mailto:ricastro@utexas.edu">ricastro@utexas.edu</a><br>
+            <a href="mailto:ricastro49@gmail.com">ricastro49@gmail.com</a>
+          </div>
+        </div>
+        <div class="contact-block">
+          <div class="label">Affiliation</div>
+          <div class="value">
+            Department of Spanish and Portuguese<br>
+            University of Texas at Austin
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ornament">❦</div>
+  <div>© Ricardo Castro Agudelo. Austin, Texas.</div>
+</footer>
+
+</body>
+</html>
